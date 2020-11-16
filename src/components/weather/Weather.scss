@@ -1,0 +1,65 @@
+@import '../../styles.scss';
+
+$dayDim: $main-dim;
+$dayRadius: $dayDim / 5;
+$weekDim: $dayDim / 2;
+$width-percent: 12%;
+$margin-percent: 1%;
+
+@mixin imgWidthHeight($dim) {
+  width: $dim;
+  height: $dim;
+}
+
+@mixin buttonTransp($bgcolor: transparent, $style: solid, $radius: $dayRadius) {
+  background-color: $bgcolor;
+  border-color: $bgcolor;
+  border-style: $style;
+  border-radius: $radius
+}
+
+.DayOfWeek {
+  @include buttonTransp();
+  font-family: $font-stack;
+  color: $main-color;
+  width: $width-percent;
+  margin: $margin-percent;
+  padding: 0;
+
+  .DateParag {
+    font-size: $default-font-size;
+  }
+
+  &:hover {
+    @include buttonTransp(rgba(255, 255, 255, 0.05));
+  }
+
+  &:focus {
+    @include buttonTransp(rgba(255, 255, 255, 0.05));
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.DayCurrent {
+  .CityDiv {
+    @include flexDisplay(center, center);
+    padding: $default-font-size;
+    
+    .CityPin {
+      margin: $default-font-size;
+    }
+    
+    .CityText {
+      font-size: 2 * $default-font-size;
+    }
+  }
+}
+
+.DayImg {
+  @include imgWidthHeight($dayDim);
+}
+
+.WeekImg {
+  @include imgWidthHeight($weekDim);
+}

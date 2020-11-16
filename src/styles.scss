@@ -1,0 +1,37 @@
+$font-stack: 'Roboto Slab', serif;
+$default-font-size: 1rem;
+$main-color: white;
+$main-dim: 100px;
+$min-dim: 550px;
+$line-dim: 95%;
+
+@mixin background($path, $repeat: no-repeat, $cover: cover) {
+  background-image: url($path);
+  background-repeat: $repeat;
+  background-size: $cover;
+}
+
+@mixin flexDisplay($justify, $align, $display: flex) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+.App {
+  @include background("/Bitmap.svg");
+  font-family: $font-stack;
+  color: $main-color;
+  max-width: 1.35 * $min-dim;
+  min-width: $min-dim;
+  margin: auto;
+  text-align: center;
+}
+
+.Line {
+  width: $line-dim;
+  color: $main-color;
+}
+
+.Copy {
+  font-size: 1.5 * $default-font-size;
+}
